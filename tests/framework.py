@@ -91,5 +91,10 @@ class DecodeMock():
             side_effect=self._patched_jwt_decode,
         )
 
-    def _patched_jwt_decode(self, token: str, secret: str, algorithms: list):
+    def _patched_jwt_decode(self,
+        token: str,
+        secret: str,
+        algorithms: list,
+        issuer: str = '',
+        options: str = '') -> dict:
         return self.event.payload

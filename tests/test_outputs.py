@@ -3,6 +3,9 @@ import tests.events as events
 
 from tests import framework
 
+oidc_config_uri = ( "https://identity.dev.disruptive-technologies.com/"
+                    "data-connector/.well-known/openid-configuration" 
+)
 
 class TestOutputs():
 
@@ -18,6 +21,7 @@ class TestOutputs():
             request=framework.FlaskRequestFormat(test_event),
             provider=dtintegrations.provider.FLASK,
             secret='test-secret',
+            oidc_config_uri=oidc_config_uri,
         )
 
         print(payload)
@@ -34,6 +38,7 @@ class TestOutputs():
             request=framework.FlaskRequestFormat(test_event),
             provider=dtintegrations.provider.FLASK,
             secret='test-secret',
+            oidc_config_uri=oidc_config_uri,
         )
 
         eval(repr(payload))
